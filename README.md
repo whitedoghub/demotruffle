@@ -15,6 +15,7 @@
   - ```> npm install nmp@latest```
 - **truffle 설치**
   - ```> npm install truffle -g```
+  - https://www.trufflesuite.com/docs
 - **프로젝트 폴더 선택 (VS Code)**
 - **package.json 생성**
   - ```> npm init```
@@ -34,10 +35,27 @@
   
 --- 
   
-<h2>Deploy</h2>
+<h2>개발 / 테스트 / 배포</h2>
 
-- **openzeppelin-test-helpers 설치**
-  - ```> npm install openzeppelin-test-helpers --save-dev```
+- **Compile**
+  - ```> truffle compile```
+  - [프로젝트 폴더 > build] -> sol 파일(import 파일 포함)과 1대1로 매칭되는 json 파일 생성
+- **migration 파일 생성**
+  - [migrations 폴더] -> 2_xxx.js 파일 생성
+  - 로컬 테스트 및 배포(테스트넷, 메인넷)를 위해, 토큰 발행을 위한 핵심 값 설정
+  - **_토큰 발행을 위한 핵심 값_**
+    - `_name`, `_symbol`, `_decimals`, `_total_supply`
+- **Test** 
+  - `openzeppelin-test-helpers` 설치
+    - ```> npm install openzeppelin-test-helpers --save-dev```
+  - `chai` 모듈 설치
+    - ```> npm install -g chai```
+  - Test Case 생성
+    - Truffle에서는 `Mocha Testing Framework`를 이용해서 Test Case 작성
+    - [테스트 폴더 생성] -> SampleToken.test.js (Mocha Testing Framework 적용) 생성
+    
+  
+  
 - **truffle-config.js 수정**
   - network : {development : {}} -> 수정
   - Ganache 설정에서 port 번호 확인 (위 정보와 일치해야 함)
